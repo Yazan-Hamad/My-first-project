@@ -1,0 +1,514 @@
+#include <iostream>
+#include <string>
+#include <iomanip>
+
+
+
+
+using namespace std;
+
+
+
+string name;
+double Bill = 0;
+
+
+void color_menu();
+int BackgroundTextColors(int a, int b);
+void Menu();
+int category;
+int Category(int a);
+void Salads_menu();
+int salad_category(int a);
+string salads_list[5] = { "0","Green Salad","Ceaser Salad","Tabooleh","Fatoosh" };
+double salads_prices[5] = { 0, 1.5, 2.00, 1.00, 1.50 };
+string MainDishes_list[5] = { "0","Mansaf","Makloobeh","Kabseh","Ckicken Biryani" };
+double MainDishes_prices[5] = { 0, 5.00, 3.50, 3.00, 3.00 };
+void MainDishes_menu();
+int MainDishes_category(int a);
+string drinks_list[5] = { "0","Orange Juice","Shaninah","Pepsi","Water" };
+double drinks_prices[5] = { 0,1.00,0.50,0.50,0.25 };
+void Drinks_menu();
+int drinks_category(int a);
+string desserts_list[5] = { "0","Knafeh","Beklava","Cheese Cake","Cinnabon" };
+double desserts_prices[5] = { 0,3.00,2.00,4.00,3.50 };
+void Desserts_menu();
+int desserts_category(int a);
+int Payment();
+void Experience();
+
+// system("CLS");
+// system("color 0A")
+/*0 = Black       8 = Gray
+	1 = Blue        9 = Light Blue
+	2 = Green       A = Light Green
+	3 = Aqua        B = Light Aqua
+	4 = Red         C = Light Red
+	5 = Purple      D = Light Purple
+	6 = Yellow      E = Light Yellow
+	7 = White       F = Bright White*/
+
+
+int main() {
+	system("color A0");
+	cout << "JUST DISHES Restaurant.\n\nPlease enter your name: ";
+	cin >> name;
+	system("CLS");
+
+	for (int i = 1; i <= 1; i++) {
+		for (int j = 1; j <= 30; j++)
+			cout << "><";
+		cout << endl;
+	}
+	cout << "\tWelcome dear " << name << " To JUST DISHES Restaurant" << endl;
+	for (int i = 1; i <= 1; i++) {
+		for (int j = 1; j <= 30; j++)
+			cout << "><";
+		cout << endl;
+	}
+
+	Experience();
+	
+
+
+
+
+
+		Menu();
+		cin >> category;
+		Category(category);
+
+
+
+		return 0;
+}
+
+
+
+void Experience(){
+	int step2;
+	cout << "\n For a better shopping experince, pick your favourite color for the background and the text by entering the number corresponds to it.\n First write the background number and click (ENTER) then the text number and click (ENTER).\n\n";
+	color_menu();
+	int text_color, background_color;
+	cin >> background_color >> text_color;
+	BackgroundTextColors(background_color, text_color);
+	system("CLS");
+	cout << "Here is you new interface! if you like it, Enter 1 to contiue, if you wish to adjust the colors again, Enter 2.\n";
+	cin >> step2;
+
+	if (step2 == 1)
+
+		system("CLS");
+	else if (step2 == 2) {
+		system("CLS"); system("color A0"); Experience();
+	}
+
+	else
+
+		do {
+			cout << "Invalid Number, Please Enter 1 to contiue, if you wish to adjust the colors again, Enter 2.\n"; cin >> step2;
+			switch (step2) {
+			case 1:system("CLS"); break;
+			case 2:    system("CLS"); system("color A0"); Experience();  break;
+
+			default: do {
+				cout << "Invalid Number, Please Enter 1 to contiue, if you wish to adjust the colors again, Enter 2.\n"; cin >> step2;
+			} while (step2 != 1 && step2 != 2);
+			}
+		} while (step2 != 1 && step2 != 2);
+	
+}
+void color_menu() {
+	cout << " Black:\t\t0\n Blue:\t\t1\t\t\t Green:\t\t2\n Aqua:\t\t3\t\t\t Red:\t\t4\n Purpule:\t5\t\t\t Yellow:\t6\n";
+}
+int BackgroundTextColors(int a, int b) {
+
+	if (a == 0 && b == 0) return system("color 00");
+	if (a == 0 && b == 1) return system("color 01");
+	if (a == 0 && b == 2) return system("color 02");
+	if (a == 0 && b == 3) return system("color 03");
+	if (a == 0 && b == 4) return system("color 04");
+	if (a == 0 && b == 5) return system("color 05");
+	if (a == 0 && b == 6) return system("color 06");
+
+	if (a == 1 && b == 0) return system("color 90");
+	if (a == 1 && b == 1) return system("color 91");
+	if (a == 1 && b == 2) return system("color 92");
+	if (a == 1 && b == 3) return system("color 93");
+	if (a == 1 && b == 4) return system("color 94");
+	if (a == 1 && b == 5) return system("color 95");
+	if (a == 1 && b == 6) return system("color 96");
+
+	if (a == 2 && b == 0) return system("color A0");
+	if (a == 2 && b == 1) return system("color A1");
+	if (a == 2 && b == 2) return system("color A2");
+	if (a == 2 && b == 3) return system("color A3");
+	if (a == 2 && b == 4) return system("color A4");
+	if (a == 2 && b == 5) return system("color A5");
+	if (a == 2 && b == 6) return system("color A6");
+
+	if (a == 3 && b == 0) return system("color B0");
+	if (a == 3 && b == 1) return system("color B1");
+	if (a == 3 && b == 2) return system("color B2");
+	if (a == 3 && b == 3) return system("color B3");
+	if (a == 3 && b == 4) return system("color B4");
+	if (a == 3 && b == 5) return system("color B5");
+	if (a == 3 && b == 6) return system("color B6");
+
+	if (a == 4 && b == 0) return system("color C0");
+	if (a == 4 && b == 1) return system("color C1");
+	if (a == 4 && b == 2) return system("color C2");
+	if (a == 4 && b == 3) return system("color C3");
+	if (a == 4 && b == 4) return system("color C4");
+	if (a == 4 && b == 5) return system("color C5");
+	if (a == 4 && b == 6) return system("color C6");
+
+	if (a == 5 && b == 0) return system("color D0");
+	if (a == 5 && b == 1) return system("color D1");
+	if (a == 5 && b == 2) return system("color D2");
+	if (a == 5 && b == 3) return system("color D3");
+	if (a == 5 && b == 4) return system("color D4");
+	if (a == 5 && b == 5) return system("color D5");
+	if (a == 5 && b == 6) return system("color D6");
+
+	if (a == 6 && b == 0) return system("color E0");
+	if (a == 6 && b == 1) return system("color E1");
+	if (a == 6 && b == 2) return system("color E2");
+	if (a == 6 && b == 3) return system("color E3");
+	if (a == 6 && b == 4) return system("color E4");
+	if (a == 6 && b == 5) return system("color E5");
+	if (a == 6 && b == 6) return system("color E6");
+	if (a > 6 || b > 6) {
+		cout << "Invalid numbers, please write the numbers as shown.\n";
+		cin >> a >> b;
+		BackgroundTextColors(a, b);
+	}
+}
+
+void Menu() {
+	for (int i = 1; i <= 1; i++) {
+		for (int j = 1; j <= 17; j++)
+			cout << "><";
+		cout << endl;
+	}
+	cout << "\tJUST DISHES MENU\n";
+	for (int i = 1; i <= 1; i++) {
+		for (int j = 1; j <= 17; j++)
+			cout << "><";
+		cout << endl;
+	}
+	cout << endl;
+	cout << " Dear " << name << ", Please choose what would you like to order.\n Enter 1 for Salads, 2 for Main Dishes, 3 For Drinks, and 4 for Desserts.\n\n ";
+	cout << "1-\tSALADS.\n 2-\tMAIN DISHES.\n 3-\tDRINKS.\n 4-\tDESSERTS.\n\n";
+	cout << "To proceed to payment enter 9.\n";
+
+
+}
+int Category(int a) {
+
+	switch (a) {
+
+	case 1:
+		system("CLS"); Salads_menu(); break;
+	case 2:
+		system("CLS"); MainDishes_menu(); break;
+	case 3:
+		system("CLS"); Drinks_menu(); break;
+	case 4:
+		system("CLS"); Desserts_menu(); break;
+	case 9:
+		system("CLS"); Payment(); break;
+	default:
+		cout << "Invalid number.\nPlease choose what would you like to order.\n Enter 1 for Salads, 2 for Main Dishes, 3 For Drinks, and 4 for Desserts.\n";
+		cin >> a;
+		Category(a);
+
+		return 0;
+	}
+}
+void Salads_menu() {
+	int salad_num;
+	for (int i = 1; i <= 1; i++) {
+		for (int j = 1; j <= 20; j++)
+			cout << "><";
+		cout << endl;
+	}
+	cout << "\t\tSALADS\n";
+	for (int i = 1; i <= 1; i++) {
+		for (int j = 1; j <= 20; j++)
+			cout << "><";
+		cout << endl;
+	}
+	cout << endl;
+
+	cout << " 1- Green Salad\t\t\t1.50 JD\n\n 2- Caesar Salad\t\t2.00 JD\n\n 3- Tabooleh\t\t\t1.00 JD\n\n 4- Fatoosh\t\t\t1.50 JD\n\n";
+	for (int i = 1; i <= 1; i++) {
+		for (int j = 1; j <= 20; j++)
+			cout << "><";
+		cout << endl;
+	}
+	cout << endl << endl;
+	cout << "Enter the number corresponds to the salad you want to order, if you want to go back, enter 0.\n";
+	cin >> salad_num;
+	salad_category(salad_num);
+}
+int salad_category(int a) {
+	int c;
+	switch (a) {
+
+	case 0:
+	{
+		system("CLS"); Menu();
+		cin >> category;
+		Category(category);
+		break;
+	}
+	case 1:
+	case 2:
+	case 3:
+	case 4:
+	{
+		cout << "you have choosen " << salads_list[a] << " which price is " << setprecision(2) << fixed << salads_prices[a] << " JD\n";
+		cout << "If you want to add more species enter any number, if you want to clear your Cart and go back enter number 1\n";
+		cin >> c;
+		switch (c) {
+		case 1:
+			Bill = 0;
+			system("CLS"); Menu();
+			cin >> category;
+			Category(category);
+			break;
+		default:
+			Bill = Bill + salads_prices[a];
+			system("CLS"); Salads_menu();
+		}
+		break;
+	}
+	default: {
+		cout << "Invalid number, Please Enter the number corresponds to the salad you want to order, if you want to go back, enter 0.\n";
+		cin >> a;
+		salad_category(a);
+	}
+	}
+	return 0;
+}
+void MainDishes_menu() {
+	int maindish_num;
+	for (int i = 1; i <= 1; i++) {
+		for (int j = 1; j <= 22; j++)
+			cout << "><";
+		cout << endl;
+	}
+	cout << "\t\tMAIN DISHES\n";
+	for (int i = 1; i <= 1; i++) {
+		for (int j = 1; j <= 22; j++)
+			cout << "><";
+		cout << endl;
+	}
+	cout << endl;
+
+	cout << " 1- Mansaf\t\t\t5.00 JD\n\n 2- Makloobeh\t\t\t3.50 JD\n\n 3- Kabseh\t\t\t3.00 JD\n\n 4- Chicken Biryani\t\t3.00 JD\n\n";
+	for (int i = 1; i <= 1; i++) {
+		for (int j = 1; j <= 22; j++)
+			cout << "><";
+		cout << endl;
+	}
+	cout << endl << endl;
+	cout << "Enter the number corresponds to the main dish you want to order, if you want to go back, enter 0.\n";
+	cin >> maindish_num;
+	MainDishes_category(maindish_num);
+}
+int MainDishes_category(int a) {
+	int c;
+	switch (a) {
+
+	case 0:
+	{
+		system("CLS"); Menu();
+		cin >> category;
+		Category(category);
+		break;
+	}
+	case 1:
+	case 2:
+	case 3:
+	case 4:
+	{
+		cout << "you have choosen " << MainDishes_list[a] << " which price is " << setprecision(2) << fixed << MainDishes_prices[a] << " JD\n";
+		cout << "If you want to add more species enter any number, if you want to clear your Cart and go back enter number 1\n";
+		cin >> c;
+		switch (c) {
+		case 1:
+			Bill = 0;
+			system("CLS"); Menu();
+			cin >> category;
+			Category(category);
+			break;
+		default:
+			Bill = Bill + MainDishes_prices[a];
+			system("CLS"); MainDishes_menu();
+		}
+		break;
+	}
+	default: {
+		cout << "Invalid number, Please Enter the number corresponds to the main dish you want to order, if you want to go back, enter 0.";
+		cin >> a;
+		MainDishes_category(a);
+	}
+	}
+	return 0;
+}
+void Drinks_menu() {
+	int drink_num;
+	for (int i = 1; i <= 1; i++) {
+		for (int j = 1; j <= 20; j++)
+			cout << "><";
+		cout << endl;
+	}
+	cout << "\t\tDRINKS\n";
+	for (int i = 1; i <= 1; i++) {
+		for (int j = 1; j <= 20; j++)
+			cout << "><";
+		cout << endl;
+	}
+	cout << endl;
+
+	cout << " 1- Orange juice\t\t1.00 JD\n\n 2- Shaninah\t\t\t0.50 JD\n\n 3- Pepsi\t\t\t0.50 JD\n\n 4- Water\t\t\t0.25 JD\n\n";
+	for (int i = 1; i <= 1; i++) {
+		for (int j = 1; j <= 20; j++)
+			cout << "><";
+		cout << endl;
+	}
+	cout << endl << endl;
+	cout << "Enter the number corresponds to the drink you want to order, if you want to go back, enter 0.\n";
+	cin >> drink_num;
+	drinks_category(drink_num);
+}
+int drinks_category(int a) {
+	int c;
+	switch (a) {
+
+	case 0:
+	{
+		system("CLS"); Menu();
+		cin >> category;
+		Category(category);
+		break;
+	}
+	case 1:
+	case 2:
+	case 3:
+	case 4:
+	{
+		cout << "you have choosen " << drinks_list[a] << " which price is " << setprecision(2) << fixed << drinks_prices[a] << " JD\n";
+		cout << "If you want to add more species enter any number, if you want to clear your Cart and go back enter number 1\n";
+		cin >> c;
+		switch (c) {
+		case 1:
+			Bill = 0;
+			system("CLS"); Menu();
+			cin >> category;
+			Category(category);
+			break;
+		default:
+			Bill = Bill + drinks_prices[a];
+			system("CLS"); Drinks_menu();
+		}
+		break;
+	}
+	default: {
+		cout << "Invalid number, Please Enter the number corresponds to the drink you want to order, if you want to go back, enter 0.\n";
+		cin >> a;
+		drinks_category(a);
+	}
+	}
+	return 0;
+}
+
+
+void Desserts_menu() {
+	int dessert_num;
+	for (int i = 1; i <= 1; i++) {
+		for (int j = 1; j <= 20; j++)
+			cout << "><";
+		cout << endl;
+	}
+	cout << "\t\tDESSERTS\n";
+	for (int i = 1; i <= 1; i++) {
+		for (int j = 1; j <= 20; j++)
+			cout << "><";
+		cout << endl;
+	}
+	cout << endl;
+
+	cout << " 1- Knafeh\t\t\t3.00 JD\n\n 2- Beklava\t\t\t2.00 JD\n\n 3- Cheese Cake\t\t\t4.00 JD\n\n 4- Cinnabon\t\t\t3.50 JD\n\n";
+	for (int i = 1; i <= 1; i++) {
+		for (int j = 1; j <= 20; j++)
+			cout << "><";
+		cout << endl;
+	}
+	cout << endl << endl;
+	cout << "Enter the number corresponds to the dessert you want to order, if you want to go back, enter 0.\n";
+	cin >> dessert_num;
+	desserts_category(dessert_num);
+}
+int desserts_category(int a) {
+	int c;
+	switch (a) {
+
+	case 0:
+	{
+		system("CLS"); Menu();
+		cin >> category;
+		Category(category);
+		break;
+	}
+	case 1:
+	case 2:
+	case 3:
+	case 4:
+	{
+		cout << "you have choosen " << desserts_list[a] << " which price is " << setprecision(2) << fixed << desserts_prices[a] << " JD\n";
+		cout << "If you want to add more species enter any number, if you want to clear your Cart and go back enter number 1\n";
+		cin >> c;
+		switch (c) {
+		case 1:
+			Bill = 0;
+			system("CLS"); Menu();
+			cin >> category;
+			Category(category);
+			break;
+		default:
+			Bill = Bill + desserts_prices[a];
+			system("CLS"); Desserts_menu();
+		}
+		break;
+	}
+	default: {
+		cout << "Invalid number, Please Enter the number corresponds to the dessert you want to order, if you want to go back, enter 0.\n";
+		cin >> a;
+		desserts_category(a);
+	}
+	}
+	return 0;
+}
+int Payment() {
+
+	for (int i = 1; i <= 1; i++) {
+		for (int j = 1; j <= 30; j++)
+			cout << "><";
+		cout << endl;
+	}
+	cout << "\tThank you dear " << name << " For visiting us" << endl;
+	for (int i = 1; i <= 1; i++) {
+		for (int j = 1; j <= 30; j++)
+			cout << "><";
+		cout << endl;
+	}
+	cout << endl;
+	cout << "Your Total Bill is " << Bill << endl;
+
+
+
+	return 0;
+}
